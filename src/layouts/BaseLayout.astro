@@ -1,0 +1,49 @@
+---
+import Header, { type Section } from '../components/Header.astro';
+// Google Fonts (Arimo, Gelasio, Carlito), self-hosted via Fontsource.
+import '@fontsource/arimo/400.css';
+import '@fontsource/arimo/700.css';
+import '@fontsource/gelasio/400.css';
+import '@fontsource/gelasio/400-italic.css';
+import '@fontsource/gelasio/700.css';
+import '@fontsource/carlito/400.css';
+import '@fontsource/carlito/700.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  current?: Section;
+}
+
+const SITE_NAME = 'Fatmir Mustafa Karllo';
+const {
+  title,
+  description = 'Fatmir Mustafa Karllo — contemporary artist, Prishtina, Kosovo. Works, projects and texts.',
+  current,
+} = Astro.props;
+const pageTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header current={current} />
+    <main id="main" class="container">
+      <slot />
+    </main>
+  </body>
+</html>

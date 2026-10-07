@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { render } from 'astro:content';
+import { getTexts } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const texts = await getTexts();
+  return texts.map((text) => ({ params: { slug: text.id }, props: { text } }));
+}
+
+const { text } = Astro.props;
+const { Content } = await render(text);
+---
+
+<BaseLayout title={text.data.title} current="text">
+  <article class="reading">
+    <h1 class="reading__title">{text.data.title}</h1>
+    <p class="reading__meta">{text.data.author}, {text.data.year}</p>
+    <div class="reading__body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

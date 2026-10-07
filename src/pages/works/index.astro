@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Photo from '../../components/Photo.astro';
+import { getWorks } from '../../lib/content';
+
+const works = await getWorks();
+---
+
+<BaseLayout title="Works" current="works">
+  <h1 class="visually-hidden">Works</h1>
+  <ul class="index-list">
+    {
+      works.map((work, i) => {
+        const first = work.data.images[0];
+        return (
+          <li class="index-item">
+            <a href={`/works/${work.id}/`} class="index-item__link">
+              {first && (
+                <Photo
+                  src={first.src}
+                  alt=""
+                  maxWidth={420}
+                  loading={i < 2 ? 'eager' : 'lazy'}
+                  class="index-item__thumb"
+                />
+              )}
+              <span class="index-item__title">{work.data.title}</span>
+              {work.data.year !== undefined && <span class="index-item__year">{work.data.year}</span>}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>

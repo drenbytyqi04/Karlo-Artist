@@ -1,0 +1,47 @@
+---
+/*
+ * Shared template for a work page and a project page:
+ * title, description, then every photo stacked with its caption.
+ */
+import { render } from 'astro:content';
+import Photo from './Photo.astro';
+import { ARTIST, type Entry } from '../lib/content';
+
+interface Props {
+  entry: Entry;
+}
+
+const { entry } = Astro.props;
+const { title, year, material, dimensions, images } = entry.data;
+const { Content } = await render(entry);
+
+// "<b>ARTIST</b>, <i>TITLE</i>, MATERIAL, YEAR, DIMENSIONS. <caption>"
+const details = [material, year, dimensions].filter((v) => v !== undefined && v !== '');
+---
+
+<article class="detail">
+  <h1 class="detail__title">{title}</h1>
+  <div class="detail__text">
+    <Content />
+  </div>
+
+  {
+    images.length > 0 && (
+      <div class="detail__photos">
+        {images.map((image, i) => (
+          <figure class="detail__figure">
+            <Photo
+              src={image.src}
+              alt={image.alt ?? `${title}, photograph ${i + 1} of ${images.length}`}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+            <figcaption class="caption">
+              <b>{ARTIST}</b>, <i>{title}</i>
+              {details.map((d) => `, ${d}`)}.{image.caption && ` ${image.caption}`}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    )
+  }
+</article>

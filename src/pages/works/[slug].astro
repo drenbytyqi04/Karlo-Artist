@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryDetail from '../../components/EntryDetail.astro';
+import { getWorks } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const works = await getWorks();
+  return works.map((work) => ({ params: { slug: work.id }, props: { work } }));
+}
+
+const { work } = Astro.props;
+const description = work.body?.replace(/\s+/g, ' ').trim().slice(0, 155);
+---
+
+<BaseLayout title={work.data.title} description={description} current="works">
+  <EntryDetail entry={work} />
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+/*
+ * One photo at its own natural size and aspect ratio. It is never cropped:
+ * the width/height attributes carry its natural size (capped at the column
+ * width, same aspect ratio) and CSS only scales it down further when the
+ * screen is narrower (max-width: 100%; height: auto). The `sizes` value matches the rendered width so the
+ * browser picks the right file from the srcset.
+ */
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  /** Widest the image can ever be shown, in CSS pixels. */
+  maxWidth?: number;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const { src, alt, maxWidth = 820, loading = 'lazy', class: className } = Astro.props;
+
+// Displayed width: the natural width, capped by the column. Height follows
+// the original aspect ratio exactly.
+const shown = Math.min(src.width, maxWidth);
+const shownHeight = Math.round((src.height * shown) / src.width);
+const widths = [...new Set([320, 480, 640, 820, 1024, 1280, 1640, shown, src.width])]
+  .filter((w) => w <= src.width)
+  .sort((a, b) => a - b);
+const sizes = `(max-width: 700px) min(calc(100vw - 40px), ${shown}px), min(calc(100vw - 80px), ${shown}px)`;
+---
+
+<Picture
+  src={src}
+  alt={alt}
+  widths={widths}
+  sizes={sizes}
+  formats={['avif', 'webp']}
+  fallbackFormat="jpg"
+  width={shown}
+  height={shownHeight}
+  loading={loading}
+  decoding="async"
+  class:list={['photo', className]}
+/>

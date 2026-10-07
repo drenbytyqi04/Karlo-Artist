@@ -1,0 +1,62 @@
+---
+/*
+ * The one shared header. Every page renders it through BaseLayout with
+ * the same markup; only the bold "current" item changes.
+ */
+export type Section = 'home' | 'works' | 'projects' | 'text' | 'contact' | 'search';
+
+interface Props {
+  current?: Section;
+}
+
+const { current } = Astro.props;
+
+const primary = [
+  { id: 'works', label: 'Works', href: '/works/' },
+  { id: 'projects', label: 'Projects', href: '/projects/' },
+] as const;
+
+const secondary = [
+  { id: 'text', label: 'Text', href: '/text/' },
+  { id: 'contact', label: 'Contact', href: '/contact/' },
+  { id: 'search', label: 'Search', href: '/search/' },
+] as const;
+---
+
+<header class="site-header">
+  <div class="container">
+    <div class="site-header__row">
+      <a class="site-name" href="/" aria-current={current === 'home' ? 'page' : undefined}>
+        Fatmir Mustafa Karllo
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul class="site-nav__group">
+          {primary.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                data-label={item.label}
+                aria-current={current === item.id ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <ul class="site-nav__group site-nav__group--secondary">
+          {secondary.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                data-label={item.label}
+                aria-current={current === item.id ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

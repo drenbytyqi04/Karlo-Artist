@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import portrait from '../assets/portrait/portrait.jpg';
+---
+
+<BaseLayout current="home">
+  <div class="home">
+    <div class="home__left">
+      <blockquote class="home__quote">
+        <p>The greatest compromise an artist makes is with their own life.</p>
+      </blockquote>
+      <p class="home__attribution">Fatmir Mustafa Karllo, 2009</p>
+
+      <div class="home__cv">
+        <Image
+          src={portrait}
+          alt="Portrait of Fatmir Mustafa Karllo"
+          width={45}
+          height={60}
+          densities={[1, 2]}
+          class="home__portrait"
+        />
+        <a href="/cv.pdf" download>download cv</a>
+      </div>
+    </div>
+
+    <div class="home__bio">
+      <h1 class="visually-hidden">Fatmir Mustafa Karllo</h1>
+      <p>
+        Fatmir Mustafa Karllo was born in 1984 in Konjare, North Macedonia. His grandfather's family had to flee from
+        Kosovo to Macedonia in 1956 after being persecuted by the Rankovic police. His parents' family returned to
+        Kosovo in 1989.
+      </p>
+      <p>
+        Karllo attended primary school in Pristina at a time when the Albanian population suffered discrimination,
+        including exclusion from the higher education system. In 1999, during the Kosovo War, the family was forced by
+        Serbian army police to leave the country for Albania, returning three months later, where they found that their
+        house on the outskirts of Pristina was burned.
+      </p>
+      <p>
+        Two years after graduating from high school, Karllo completed his art studies in Pristina in 2004. In 2007, he
+        won the International Jury Prize of the National Gallery of Kosovo's "Artists of Tomorrow" competition, which
+        included a several-week residency in New York. In 2010, Karllo moved to Finland, where he worked as a freelance
+        artist and graduated from the University of Fine Arts Helsinki in 2018 with his master's thesis "Refusals".
+      </p>
+      <p>
+        Karllo lives in Pristina since 2018. His performances, installations, and visual works have been presented in
+        various solo and group exhibitions in Pristina, Helsinki, Brussel, Milano, Zagreb, Skopje, New York, and the
+        Autostrada Biennale Prizren.
+      </p>
+      <p>
+        His work focuses on reflecting on the role of the artist in a capitalist society, the materiality of memory, the
+        de-normalization of hegemonic narratives, the social significance of work, and the political developments in
+        Eastern Europe after the end of the Cold War.
+      </p>
+      <p>
+        Karllo explores these themes in sculptures, open archives, site-specific installations, photographs,
+        performances, and curated formats. He became known to a wider audience in Kosovo in 2007 through his "Lemon Tea"
+        action. During the bloody protests against the UN and the Kosovo government, he distributed hot tea on the
+        streets of Pristina between tear gas and armed forces "to calm the spirits".
+      </p>
+      <p>
+        In 2019, he started teaching at the UBT College in Pristina. In 2022, he opened his project "On Top Residency" on
+        a panoramic hill near the village of Butoc, building a "gallery without walls" in an exposed landscape
+        overlooking Pristina. Karllo invites international artists and collectives to create a temporary installation.
+        The first exhibition "NSK Territory Pristina" was by the group IRWIN. The site is marked by white flour, which
+        serves as a kind of border. The initiative transformed an unused public space on the outskirts of Prishtina, a
+        hill in Butoc, along Kavaja Street, into an "outdoor" gallery.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

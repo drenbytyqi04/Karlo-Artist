@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getTexts } from '../../lib/content';
+
+const texts = await getTexts();
+---
+
+<BaseLayout title="Text" current="text">
+  <h1 class="visually-hidden">Text</h1>
+  <ul class="rows">
+    {
+      texts.map((text) => (
+        <li class="row text-row">
+          <a href={`/text/${text.id}/`} class="text-row__title">{text.data.title}</a>
+          <span class="text-row__meta">
+            {text.data.author}, {text.data.year}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

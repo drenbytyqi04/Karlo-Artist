@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getProjects } from '../../lib/content';
+
+const projects = await getProjects();
+---
+
+<BaseLayout title="Projects" current="projects">
+  <h1 class="visually-hidden">Projects</h1>
+  <ul class="projects">
+    {
+      projects.map((project) => (
+        <li class="project">
+          <h2 class="project__title">
+            <a href={`/projects/${project.id}/`}>{project.data.title}</a>
+          </h2>
+          {project.data.meta && <p class="project__meta">{project.data.meta}</p>}
+          {project.data.summary && <p class="project__summary">{project.data.summary}</p>}
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

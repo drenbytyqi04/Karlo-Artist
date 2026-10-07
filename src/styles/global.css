@@ -1,0 +1,622 @@
+/*
+ * Fatmir Mustafa Karllo — one global stylesheet.
+ * White, black, three greys. No other colours, no animation.
+ */
+
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --inactive: #767676;
+  --caption: #444444;
+  --line: #cfcfcf;
+
+  --font-arimo: 'Arimo', Arial, Helvetica, sans-serif;
+  --font-gelasio: 'Gelasio', Georgia, 'Times New Roman', serif;
+  --font-carlito: 'Carlito', Calibri, Arial, sans-serif;
+
+  --container: 1220px;
+  --reading: 820px;
+  --gutter: 40px;
+}
+
+@media (max-width: 700px) {
+  :root {
+    --gutter: 20px;
+  }
+}
+
+/* ---------- Reset ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-gelasio);
+  font-size: 17px;
+  line-height: 1.32;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+img,
+picture {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: 8px;
+  padding: 4px 8px;
+  background: var(--bg);
+  font-family: var(--font-arimo);
+  font-size: 14px;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+main.container {
+  padding-top: 64px;
+  padding-bottom: 160px;
+}
+
+/* ---------- Header (identical on every page) ---------- */
+
+.site-header {
+  padding-top: 72px;
+}
+
+.site-header__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 40px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-name,
+.site-nav {
+  font-family: var(--font-arimo);
+  font-size: 18px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.site-name {
+  color: var(--text);
+}
+
+.site-name[aria-current='page'] {
+  font-weight: 400;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 52px; /* 20px base gap + 32px extra between the two groups */
+}
+
+.site-nav__group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.site-nav__group a {
+  color: var(--text);
+  /* Reserve the bold width so the current item never shifts the others. */
+  display: inline-grid;
+}
+
+.site-nav__group a::after {
+  content: attr(data-label);
+  content: attr(data-label) / "";
+  font-weight: 700;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+.site-nav__group--secondary a {
+  color: var(--inactive);
+}
+
+.site-nav a[aria-current='page'] {
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .site-header__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .site-nav {
+    gap: 8px 36px;
+  }
+
+  .site-nav__group {
+    gap: 8px 16px;
+  }
+}
+
+/* ---------- Home ---------- */
+
+.home {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 80px;
+  align-items: stretch;
+}
+
+.home__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.home__quote {
+  font-family: var(--font-gelasio);
+  font-size: 60px;
+  line-height: 1.08;
+  font-weight: 400;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.home__attribution {
+  margin-top: 72px;
+  font-size: 17px;
+}
+
+.home__cv {
+  margin-top: auto;
+  padding-top: 96px;
+  font-size: 17px;
+}
+
+.home__portrait {
+  width: 45px;
+  height: 60px;
+  margin-bottom: 8px;
+}
+
+.home__cv a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+.home__bio {
+  font-family: var(--font-gelasio);
+  font-size: 17px;
+  line-height: 1.32;
+}
+
+.home__bio p + p {
+  margin-top: 22px;
+}
+
+@media (max-width: 900px) {
+  .home {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 56px;
+  }
+
+  .home__quote {
+    font-size: 40px;
+  }
+
+  .home__attribution {
+    margin-top: 40px;
+  }
+
+  .home__cv {
+    padding-top: 48px;
+  }
+
+  /* On a phone the bio follows the quote; the CV link closes the page. */
+  .home__left {
+    display: contents;
+  }
+
+  .home__quote {
+    order: 1;
+  }
+
+  .home__attribution {
+    order: 2;
+  }
+
+  .home__bio {
+    order: 3;
+  }
+
+  .home__cv {
+    order: 4;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .home__quote {
+    font-size: 34px;
+  }
+}
+
+/* ---------- Photos (never cropped) ---------- */
+
+/*
+ * Every photo keeps its own natural size and aspect ratio. The width and
+ * height attributes carry the original dimensions; the image only scales
+ * down when it is wider than its column. No fixed heights, no object-fit.
+ */
+.photo {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Work / project detail ---------- */
+
+.detail {
+  max-width: var(--reading);
+  margin-inline: auto;
+}
+
+.detail__title {
+  font-family: var(--font-carlito);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.detail__text {
+  font-family: var(--font-carlito);
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.detail__text p + p,
+.detail__text p + ul,
+.detail__text ul + p {
+  margin-top: 1.5em;
+}
+
+.detail__text h2,
+.detail__text h3 {
+  font-family: var(--font-carlito);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 48px;
+  margin-bottom: 12px;
+}
+
+.detail__text ul {
+  padding-left: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.detail__text li + li {
+  margin-top: 4px;
+}
+
+.detail__photos {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}
+
+.caption {
+  margin-top: 14px;
+  font-family: var(--font-gelasio);
+  font-size: 13px;
+  line-height: 1.45;
+  text-transform: uppercase;
+  color: var(--caption);
+}
+
+.caption b {
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .detail__text {
+    text-align: left;
+    font-size: 17px;
+  }
+
+  .detail__photos {
+    margin-top: 72px;
+    gap: 64px;
+  }
+}
+
+/* ---------- Works index ---------- */
+
+.index-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.index-item__link {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.index-item__link:hover {
+  text-decoration: none;
+}
+
+.index-item__link:hover .index-item__title {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+.index-item__thumb {
+  margin-bottom: 14px;
+}
+
+.index-item__title {
+  font-family: var(--font-carlito);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.index-item__year {
+  font-family: var(--font-carlito);
+  font-size: 18px;
+  margin-left: 12px;
+}
+
+/* ---------- Projects index ---------- */
+
+.projects {
+  max-width: var(--reading);
+}
+
+.project {
+  padding-block: 48px;
+  border-top: 1px solid var(--line);
+}
+
+.project:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.project__title {
+  font-family: var(--font-gelasio);
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.project__meta {
+  margin-top: 14px;
+  color: var(--inactive);
+  font-size: 17px;
+}
+
+.project__summary {
+  margin-top: 18px;
+  font-size: 17px;
+  line-height: 1.32;
+}
+
+@media (max-width: 700px) {
+  .project__title {
+    font-size: 32px;
+  }
+}
+
+/* ---------- Rows (text list, contact, search results) ---------- */
+
+.rows {
+  max-width: var(--reading);
+  font-family: var(--font-gelasio);
+  font-size: 17px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  align-items: baseline;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.rows > .row:first-child,
+.contact > .row:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.contact dt {
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.contact dd {
+  margin: 0;
+}
+
+.text-row__title {
+  font-size: 19px;
+}
+
+.text-row__meta,
+.result__meta {
+  color: var(--inactive);
+}
+
+/* ---------- Text (reading page) ---------- */
+
+.reading {
+  max-width: var(--reading);
+  margin-inline: auto;
+  font-family: var(--font-gelasio);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.reading__title {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.reading__meta {
+  margin-top: 10px;
+  color: var(--inactive);
+}
+
+.reading__body {
+  margin-top: 48px;
+}
+
+.reading__body p + p {
+  margin-top: 1.1em;
+}
+
+.reading__body h2,
+.reading__body h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+}
+
+/* ---------- Search ---------- */
+
+.search {
+  max-width: var(--reading);
+}
+
+.search__form input {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--text);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-gelasio);
+  font-size: 22px;
+  appearance: none;
+}
+
+.search__form input::placeholder {
+  color: var(--inactive);
+  opacity: 1;
+}
+
+.search__form input:focus-visible {
+  outline: none;
+  border-bottom-width: 2px;
+  padding-bottom: 9px;
+}
+
+.search__status {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: var(--inactive);
+  min-height: 1.32em;
+}
+
+.result__title {
+  font-size: 19px;
+}
+
+.result__excerpt {
+  flex-basis: 100%;
+  font-size: 15px;
+  color: var(--caption);
+}
