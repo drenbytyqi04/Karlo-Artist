@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Thumb from '../../components/Thumb.astro';
 import { getProjects } from '../../lib/content';
 
 const projects = await getProjects();
@@ -7,15 +8,16 @@ const projects = await getProjects();
 
 <BaseLayout title="Projects" current="projects">
   <h1 class="visually-hidden">Projects</h1>
-  <ul class="projects">
+  <ul class="grid">
     {
-      projects.map((project) => (
-        <li class="project">
-          <h2 class="project__title">
-            <a href={`/projects/${project.id}/`}>{project.data.title}</a>
-          </h2>
-          {project.data.meta && <p class="project__meta">{project.data.meta}</p>}
-          {project.data.summary && <p class="project__summary">{project.data.summary}</p>}
+      projects.map((project, i) => (
+        <li>
+          <a href={`/projects/${project.id}/`} class="card">
+            <Thumb src={project.data.images[0]?.src} loading={i < 3 ? 'eager' : 'lazy'} />
+            <h2 class="card__project-title">{project.data.title}</h2>
+            {project.data.meta && <p class="card__meta">{project.data.meta}</p>}
+            {project.data.summary && <p class="card__summary">{project.data.summary}</p>}
+          </a>
         </li>
       ))
     }

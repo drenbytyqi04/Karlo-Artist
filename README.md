@@ -54,7 +54,8 @@ Set the real domain in `astro.config.mjs` (`site`) once it is known.
    - `title` is required; `year`, `material`, `dimensions` and `images` are optional.
    - The caption under each photo is built automatically:
      **FATMIR MUSTAFA KARLLO**, *TITLE*, MATERIAL, YEAR, DIMENSIONS. *caption*
-   - Photos appear in the order listed. The first photo is also the thumbnail on the Works page.
+   - Photos appear in the order listed. The first photo is also the thumbnail on the Works page, where it is
+     shown in an even 3:2 box (cropped to fill it). On the work page itself photos are never cropped.
    - Optional per photo: `alt: "…"` to describe the image for screen readers.
    - Add `draft: true` to hide a work without deleting it.
 

@@ -1,0 +1,43 @@
+---
+/*
+ * Index thumbnail: a fixed 3:2 box, the photo fills it (object-fit: cover).
+ * Used ONLY on the Works and Projects index grids — detail pages use
+ * Photo.astro and are never cropped. Without a photo, the grey box shows.
+ */
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src?: ImageMetadata;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, loading = 'lazy' } = Astro.props;
+
+// One grid column is at most ~360px wide (1220px container, 3 columns).
+const widths = src
+  ? [...new Set([360, 480, 720, 960, 1080, src.width])].filter((w) => w <= src.width).sort((a, b) => a - b)
+  : [];
+const sizes =
+  '(max-width: 639px) calc(100vw - 40px), (max-width: 700px) calc((100vw - 72px) / 2), (max-width: 1024px) calc((100vw - 112px) / 2), min(calc((100vw - 144px) / 3), 360px)';
+---
+
+<div class="thumb">
+  {
+    src && (
+      <Picture
+        src={src}
+        alt=""
+        widths={widths}
+        sizes={sizes}
+        formats={['avif', 'webp']}
+        fallbackFormat="jpg"
+        width={Math.min(src.width, 1080)}
+        height={Math.round((src.height * Math.min(src.width, 1080)) / src.width)}
+        loading={loading}
+        decoding="async"
+        class="thumb__img"
+      />
+    )
+  }
+</div>

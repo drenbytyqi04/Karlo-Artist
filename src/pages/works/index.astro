@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Photo from '../../components/Photo.astro';
+import Thumb from '../../components/Thumb.astro';
 import { getWorks } from '../../lib/content';
 
 const works = await getWorks();
@@ -8,28 +8,19 @@ const works = await getWorks();
 
 <BaseLayout title="Works" current="works">
   <h1 class="visually-hidden">Works</h1>
-  <ul class="index-list">
+  <ul class="grid">
     {
-      works.map((work, i) => {
-        const first = work.data.images[0];
-        return (
-          <li class="index-item">
-            <a href={`/works/${work.id}/`} class="index-item__link">
-              {first && (
-                <Photo
-                  src={first.src}
-                  alt=""
-                  maxWidth={420}
-                  loading={i < 2 ? 'eager' : 'lazy'}
-                  class="index-item__thumb"
-                />
-              )}
-              <span class="index-item__title">{work.data.title}</span>
-              {work.data.year !== undefined && <span class="index-item__year">{work.data.year}</span>}
-            </a>
-          </li>
-        );
-      })
+      works.map((work, i) => (
+        <li>
+          <a href={`/works/${work.id}/`} class="card">
+            <Thumb src={work.data.images[0]?.src} loading={i < 3 ? 'eager' : 'lazy'} />
+            <span class="card__line">
+              <span class="card__title">{work.data.title}</span>
+              {work.data.year !== undefined && <span class="card__year">{work.data.year}</span>}
+            </span>
+          </a>
+        </li>
+      ))
     }
   </ul>
 </BaseLayout>
