@@ -3,10 +3,19 @@ title: "100 cm of Freedom"
 year: 2026
 material: "Bronze cast hand, life size, soil, grass"
 dimensions: "Ø 100 cm"
-# Photos: put them in src/assets/works/100-cm-of-freedom/ and list them here, e.g.
-# images:
-#   - src: "../../assets/works/100-cm-of-freedom/01.jpg"
-#     caption: "Photo: Courtesy of the artist. Hosted and commissioned by Festival der Vorgärten."
+images:
+  - src: "../../assets/works/100-cm-of-freedom/01.jpg"
+    alt: "Bronze cast of a hand lying palm down in the grass"
+    caption: "Photo: Courtesy of the artist. Hosted and commissioned by Festival der Vorgärten."
+  - src: "../../assets/works/100-cm-of-freedom/02.jpg"
+    alt: "Bronze hand seen at ground level between blades of grass"
+    caption: "Photo: Courtesy of the artist. Hosted and commissioned by Festival der Vorgärten."
+  - src: "../../assets/works/100-cm-of-freedom/03.jpg"
+    alt: "Bronze hand in the grass, fingers stretched out"
+    caption: "Photo: Courtesy of the artist. Hosted and commissioned by Festival der Vorgärten."
+  - src: "../../assets/works/100-cm-of-freedom/04.jpg"
+    alt: "View from above: the bronze hand in the middle of an unmown grass circle in a mown lawn, a lawnmower at the edge"
+    caption: "Photo: Courtesy of the artist. Hosted and commissioned by Festival der Vorgärten."
 ---
 The beginning of the work 100 cm of Freedom is a declaration signed by the father of the artist Fatmir Mustafa Karllo. It entails the transfer of 100 cm of the lawn in his front garden to his son Karllo. For the work 100 cm of Freedom, this specifically means that this area will no longer be mown from 24 April 2026 onwards.
 
