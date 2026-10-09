@@ -14,6 +14,9 @@ const imageList = (image: () => any) =>
         src: image(),
         caption: z.string().optional(),
         alt: z.string().optional(),
+        // For a series shown as a grid: each piece's own title and year
+        title: z.string().optional(),
+        year: z.union([z.number(), z.string()]).optional(),
       }),
     )
     .default([]);
@@ -27,6 +30,8 @@ const works = defineCollection({
       material: z.string().optional(),
       dimensions: z.string().optional(),
       images: imageList(image),
+      // "grid" shows the photos as a series (3 per row, title and year under each)
+      layout: z.enum(['stack', 'grid']).default('stack'),
       // Position among works of the same year (lower comes first)
       order: z.number().default(0),
       draft: z.boolean().default(false),

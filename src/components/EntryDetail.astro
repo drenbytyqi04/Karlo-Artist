@@ -4,6 +4,7 @@
  * title, description, then every photo stacked with its caption.
  */
 import { render } from 'astro:content';
+import { Picture } from 'astro:assets';
 import Photo from './Photo.astro';
 import { ARTIST, type Entry } from '../lib/content';
 
@@ -14,6 +15,7 @@ interface Props {
 const { entry } = Astro.props;
 const { title, year, material, dimensions, images } = entry.data;
 const { Content } = await render(entry);
+const grid = 'layout' in entry.data && entry.data.layout === 'grid';
 
 // "<b>ARTIST</b>, <i>TITLE</i>, MATERIAL, YEAR, DIMENSIONS. <caption>"
 const details = [material, year, dimensions]
@@ -22,14 +24,42 @@ const details = [material, year, dimensions]
   .map((v) => String(v).replace(/-/g, '\u2011'));
 ---
 
-<article class="detail">
+<article class:list={['detail', grid && 'detail--grid']}>
   <h1 class="detail__title">{title}</h1>
   <div class="detail__text">
     <Content />
   </div>
 
   {
-    images.length > 0 && (
+    grid && images.length > 0 && (
+      <ul class="series">
+        {images.map((image, i) => (
+          <li class="series__item">
+            <Picture
+              src={image.src}
+              alt={image.alt ?? image.title ?? `${title}, ${i + 1} of ${images.length}`}
+              widths={[360, 540, 720, 1080].filter((w) => w <= image.src.width).concat(image.src.width < 360 ? [image.src.width] : [])}
+              sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1024px) calc((100vw - 112px) / 2), min(calc((100vw - 144px) / 3), 360px)"
+              formats={['avif', 'webp']}
+              fallbackFormat="jpg"
+              loading={i < 3 ? 'eager' : 'lazy'}
+              decoding="async"
+              class="series__img"
+            />
+            {(image.title || image.year) && (
+              <p class="series__label">
+                {image.title && <span class="series__title">{image.title}</span>}
+                {image.year && <span class="series__year">{image.year}</span>}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    !grid && images.length > 0 && (
       <div class="detail__photos">
         {images.map((image, i) => (
           <figure class="detail__figure">
