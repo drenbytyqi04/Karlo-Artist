@@ -4,6 +4,12 @@ year: 2026
 material: "Bronze cast hand, life size, soil, grass"
 dimensions: "Ø 100 cm"
 images:
+  - src: "../../assets/works/100-cm-of-freedom/06.jpg"
+    alt: "The artist's father writing the declaration by hand on a sheet of paper"
+    caption: "Photo: Courtesy of the artist. Hosted and commissioned by Festival der Vorgärten."
+  - src: "../../assets/works/100-cm-of-freedom/07.jpg"
+    alt: "The artist and his father shaking hands next to the circle of grass with the bronze hand"
+    caption: "Photo: Courtesy of the artist. Hosted and commissioned by Festival der Vorgärten."
   - src: "../../assets/works/100-cm-of-freedom/01.jpg"
     alt: "Bronze cast of a hand lying palm down in the grass"
     caption: "Photo: Courtesy of the artist. Hosted and commissioned by Festival der Vorgärten."
