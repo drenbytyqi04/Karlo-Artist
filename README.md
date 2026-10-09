@@ -58,6 +58,7 @@ Set the real domain in `astro.config.mjs` (`site`) once it is known.
      shown in an even 3:2 box (cropped to fill it). On the work page itself photos are never cropped.
    - Optional per photo: `alt: "…"` to describe the image for screen readers.
    - Add `draft: true` to hide a work without deleting it.
+   - Works of the same year: add `order: 1`, `order: 2`, … to set which comes first.
 
 3. Commit and push — the site rebuilds. The Works page sorts by year, newest first; works without a year come last.
 

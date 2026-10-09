@@ -2,6 +2,7 @@
 title: "The History of Misery (Part 1)"
 year: 2023
 material: "Van de Graaff generator"
+order: 2
 images:
   - src: "../../assets/works/the-history-of-misery-part-1/01.jpg"
     alt: "Van de Graaff generator with a mirrored steel sphere on a white plinth in the gallery"

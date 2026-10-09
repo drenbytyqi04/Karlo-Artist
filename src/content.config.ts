@@ -27,6 +27,8 @@ const works = defineCollection({
       material: z.string().optional(),
       dimensions: z.string().optional(),
       images: imageList(image),
+      // Position among works of the same year (lower comes first)
+      order: z.number().default(0),
       draft: z.boolean().default(false),
     }),
 });

@@ -12,7 +12,10 @@ function yearValue(year: number | string | undefined): number {
 export async function getWorks() {
   const works = await getCollection('works', ({ data }) => !data.draft);
   return works.sort(
-    (a, b) => yearValue(b.data.year) - yearValue(a.data.year) || a.data.title.localeCompare(b.data.title),
+    (a, b) =>
+      yearValue(b.data.year) - yearValue(a.data.year) ||
+      a.data.order - b.data.order ||
+      a.data.title.localeCompare(b.data.title),
   );
 }
 

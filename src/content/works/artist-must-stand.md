@@ -3,6 +3,7 @@ title: "Artist Must Stand"
 year: 2023
 material: "Stone"
 dimensions: "100 × 65 × 50 cm"
+order: 1
 images:
   - src: "../../assets/works/artist-must-stand/01.jpg"
     alt: "Stone pedestal with two small stone training wheels in front of the National Gallery of Kosovo"
