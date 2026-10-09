@@ -16,7 +16,10 @@ const { title, year, material, dimensions, images } = entry.data;
 const { Content } = await render(entry);
 
 // "<b>ARTIST</b>, <i>TITLE</i>, MATERIAL, YEAR, DIMENSIONS. <caption>"
-const details = [material, year, dimensions].filter((v) => v !== undefined && v !== '');
+const details = [material, year, dimensions]
+  .filter((v) => v !== undefined && v !== '')
+  // Non-breaking hyphens keep words like "C-print" on one line.
+  .map((v) => String(v).replace(/-/g, '\u2011'));
 ---
 
 <article class="detail">

@@ -18,7 +18,7 @@ export const GET: APIRoute = async () => {
       year: w.data.year ?? '',
       url: `/works/${w.id}/`,
       text: plain(
-        [w.data.material, w.data.dimensions, ...w.data.images.map((i) => i.caption), w.body].filter(Boolean).join(' '),
+        [w.body, w.data.material, w.data.dimensions, ...w.data.images.map((i) => i.caption)].filter(Boolean).join(' '),
       ),
     })),
     ...projects.map((p) => ({
@@ -26,7 +26,7 @@ export const GET: APIRoute = async () => {
       title: p.data.title,
       year: p.data.meta ?? p.data.year ?? '',
       url: `/projects/${p.id}/`,
-      text: plain([p.data.summary, ...p.data.images.map((i) => i.caption), p.body].filter(Boolean).join(' ')),
+      text: plain([p.data.summary, p.body, ...p.data.images.map((i) => i.caption)].filter(Boolean).join(' ')),
     })),
     ...texts.map((t) => ({
       type: 'Text',
