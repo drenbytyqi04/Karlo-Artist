@@ -21,3 +21,5 @@ images:
     caption: "Part of the collection at MKRS © 2023."
 ---
 The carpet is made up of uniform pieces of various worker’s protective clothing. It is colorful and at the same time more than just decoration or a colorful ready-made. This work is a carpet of identities. It seems colorful, but to actually walk on it would be strange. “Seen” problematizes the rights of workers in Kosovo, who have few rights, protected working hours, and contracts. Yet it is these workers who keep the country running. Karllo’s work “sees” them, and at the same time, the title of the work is reminiscent of the display in the news application on a smartphone when a text message is sent and its status is reported as “seen” without a reply.
+
+Text by Thomas Oberender
