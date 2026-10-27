@@ -3,7 +3,8 @@ title: "Proud and Crappy"
 year: 2016
 material: "Paint on wall"
 order: 2
-# Hidden until the photo arrives as a file. Then add it under images and remove draft.
-draft: true
-images: []
+images:
+  - src: "../../assets/works/proud-and-crappy/01.jpg"
+    alt: "A large black line drawing on a white gallery wall of an ornate standing mirror that reflects an empty shelving unit"
+    caption: "Exhibition Laboratory, Helsinki, Finland."
 ---
