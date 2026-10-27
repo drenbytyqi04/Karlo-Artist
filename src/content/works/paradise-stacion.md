@@ -1,6 +1,7 @@
 ---
 title: "Paradise Stacion"
 year: 2008
+order: 1
 images:
   - src: "../../assets/works/paradise-stacion/01.jpg"
     alt: "The open black doors of Stacion, marked with a white star, revealing a narrow corridor between walls of straw bales"
