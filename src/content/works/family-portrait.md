@@ -1,0 +1,33 @@
+---
+title: "Family Portrait"
+year: 2011
+images:
+  - src: "../../assets/works/family-portrait/01.jpg"
+    alt: "The large portrait of an extended Kosovan family on a street-side structure in central Helsinki, an older man looking at it"
+    caption: "Large-scale photographic portrait, public space intervention. Installation view, Helsinki, Finland, 2011. Supported by the Arts Council of Finland."
+  - src: "../../assets/works/family-portrait/02.jpg"
+    alt: "Two passers-by in front of the family portrait, a metro sign and shop signs behind"
+    caption: "Large-scale photographic portrait, public space intervention. Installation view, Helsinki, Finland, 2011. Supported by the Arts Council of Finland."
+  - src: "../../assets/works/family-portrait/03.jpg"
+    alt: "The family portrait in a busy square in central Helsinki, the Nordea building behind"
+    caption: "Large-scale photographic portrait, public space intervention. Installation view, Helsinki, Finland, 2011. Supported by the Arts Council of Finland."
+  - src: "../../assets/works/family-portrait/04.jpg"
+    alt: "Pedestrians and a child on a man’s shoulders walking past the family portrait"
+    caption: "Large-scale photographic portrait, public space intervention. Installation view, Helsinki, Finland, 2011. Supported by the Arts Council of Finland."
+  - src: "../../assets/works/family-portrait/05.jpg"
+    alt: "The family portrait seen from a café terrace, a shopping centre with advertising behind"
+    caption: "Large-scale photographic portrait, public space intervention. Installation view, Helsinki, Finland, 2011. Supported by the Arts Council of Finland."
+  - src: "../../assets/works/family-portrait/06.jpg"
+    alt: "The family portrait beside a café terrace and a metro entrance, with large advertising banners"
+    caption: "Large-scale photographic portrait, public space intervention. Installation view, Helsinki, Finland, 2011. Supported by the Arts Council of Finland."
+  - src: "../../assets/works/family-portrait/07.jpg"
+    alt: "The family portrait standing on a lawn in front of trees in Espoo, a man walking past"
+    caption: "Installation view, Objekti – Contemporary Sculpture and Environmental Art Exhibition, Espoo Centre, Finland, 2016."
+  - src: "../../assets/works/family-portrait/08.jpg"
+    alt: "The family portrait on a lawn behind an empty car park"
+    caption: "Installation view, Objekti – Contemporary Sculpture and Environmental Art Exhibition, Espoo Centre, Finland, 2016."
+  - src: "../../assets/works/family-portrait/09.jpg"
+    alt: "A park with a winding path, the family portrait seen from the side in the distance near apartment buildings"
+    caption: "Installation view, Objekti – Contemporary Sculpture and Environmental Art Exhibition, Espoo Centre, Finland, 2016."
+---
+Under Finnish family reunification regulations, grandparents and cousins are generally not considered part of the immediate family unit. A large photographic portrait of an extended Kosovan family, displayed in a public space in central Helsinki, questions this legal definition of family. By bringing a family photograph out of the private sphere and into the urban environment, among commercial imagery and public messages, the work makes visible family and social relationships that extend beyond institutional boundaries. At the same time, it challenges how images occupy and communicate within public space.
