@@ -32,6 +32,8 @@ const works = defineCollection({
       images: imageList(image),
       // "grid" shows the photos as a series (3 per row, title and year under each)
       layout: z.enum(['stack', 'grid']).default('stack'),
+      // Optional sound file in public/audio/, shown as a player under the text
+      audio: z.string().optional(),
       // Position among works of the same year (lower comes first)
       order: z.number().default(0),
       draft: z.boolean().default(false),

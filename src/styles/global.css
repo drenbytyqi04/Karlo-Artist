@@ -398,6 +398,20 @@ main.container {
   margin-top: 4px;
 }
 
+.detail__text a,
+.reading__body a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+.detail__audio {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 32px;
+}
+
 .detail__photos {
   margin-top: 120px;
   display: flex;

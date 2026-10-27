@@ -16,6 +16,7 @@ const { entry } = Astro.props;
 const { title, year, material, dimensions, images } = entry.data;
 const { Content } = await render(entry);
 const grid = 'layout' in entry.data && entry.data.layout === 'grid';
+const audio = 'audio' in entry.data ? entry.data.audio : undefined;
 
 // "<b>ARTIST</b>, <i>TITLE</i>, MATERIAL, YEAR, DIMENSIONS. <caption>"
 const details = [material, year, dimensions]
@@ -29,6 +30,14 @@ const details = [material, year, dimensions]
   <div class="detail__text">
     <Content />
   </div>
+
+  {
+    audio && (
+      <audio class="detail__audio" controls preload="none" src={audio}>
+        <a href={audio}>Listen to the sound recording</a>
+      </audio>
+    )
+  }
 
   {
     grid && images.length > 0 && (
