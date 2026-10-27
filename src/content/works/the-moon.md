@@ -25,6 +25,16 @@ images:
     alt: "A glass vitrine on a white plinth with white handkerchiefs suspended inside"
   - src: "../../assets/works/the-moon/11.jpg"
     alt: "Close view of a suspended handkerchief marked with faint grey fingerprints"
+  - src: "../../assets/works/the-moon/12.jpg"
+    alt: "The abandoned steelworks in Elbasan: a tall concrete tower and brick factory buildings under a blue sky"
+  - src: "../../assets/works/the-moon/13.jpg"
+    alt: "A derelict building at the steelworks with a banner announcing Fatmir Mustafa Karlo, The moon, installation, Informal Mind, Elbasan 2014"
+  - src: "../../assets/works/the-moon/14.jpg"
+    alt: "A worker wiping his face with a white handkerchief beside the steelworks"
+  - src: "../../assets/works/the-moon/15.jpg"
+    alt: "A tall glass vitrine in a room with yellow walls, white handkerchiefs suspended inside"
+  - src: "../../assets/works/the-moon/16.jpg"
+    alt: "Hundreds of old glass soda bottles scattered on the floor of an abandoned room with green and pink walls"
 ---
 The “Moon” group of works examines the working and living conditions of workers at the steelworks built by the Soviet Union in Elbasan during the authoritarian Hoxha regime. The three light boxes display historic Albanian soda bottles recovered from the now-abandoned production halls. Their different colours and patinas, marked by the toxic particulate matter of the steel mill, transform these mass-produced objects into seemingly unique specimens, carrying the material traces of the factory and its history.
 
